@@ -3,13 +3,13 @@
 # Importing the libraries
 
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.impute import SimpleImputer
-from sklearn.compose import ColumnTransformer
+#from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import test_train_split
+#from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
 
 
 # Importing the dataset
@@ -53,16 +53,16 @@ featureSet[:, 1:3] = simpleImputer.transform(featureSet[:, 1:3])
         #process.transform
 
     # Encoding the Independent Variables
-    labelEncoder_featureSet = LabelEncoder()
-    featureSet[:, 0] = labelEncoder_featureSet.fit_transform(featureSet[:, 0])
-        
-    oneHotEncoder = OneHotEncoder( categorical_features = [0])
-    featureSet = oneHotEncoder.fit_transform(featureSet).toarray()
-        
+labelEncoder_featureSet = LabelEncoder()
+featureSet[:, 0] = labelEncoder_featureSet.fit_transform(featureSet[:, 0])
     
-    # Encoding the Dependent Variable
-    labelEncoder_outcomeVector = LabelEncoder()
-    outcomeVector = labelEncoder_outcomeVector.fit_transform(outcomeVector)
+oneHotEncoder = OneHotEncoder( categorical_features = [0])
+featureSet = oneHotEncoder.fit_transform(featureSet).toarray()
     
+
+# Encoding the Dependent Variable
+labelEncoder_outcomeVector = LabelEncoder()
+outcomeVector = labelEncoder_outcomeVector.fit_transform(outcomeVector)
+
         
 #Splitting the data into Training and Test Sets
