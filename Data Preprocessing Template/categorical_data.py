@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from sklearn.impute import SimpleImputer
 #from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
 #from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
 
@@ -67,3 +67,10 @@ outcomeVector = labelEncoder_outcomeVector.fit_transform(outcomeVector)
         
 #Splitting the data into Training and Test Sets
 X_Train, X_Test, Y_Train, Y_Test = train_test_split(featureSet, outcomeVector, test_size = 0.2,random_state = 0)
+
+
+#Feature Scaling
+scaleFeatureSet = StandardScaler()
+X_Train = scaleFeatureSet.fit_transform(X_Train)
+X_Test = scaleFeatureSet.transform(X_Test)
+
