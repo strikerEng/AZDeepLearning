@@ -66,3 +66,4 @@ outcomeVector = labelEncoder_outcomeVector.fit_transform(outcomeVector)
 
         
 #Splitting the data into Training and Test Sets
+X_Train, X_Test, Y_Train, Y_Test = train_test_split(featureSet, outcomeVector, test_size = 0.2,random_state = 0)
